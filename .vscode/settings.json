@@ -1,0 +1,19 @@
+{
+  "files.eol": "\n",
+  "eslint.packageManager": "yarn",
+  "editor.insertSpaces": false,
+  "editor.tabSize": 4,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "css.validate": false,
+  "scss.validate": false,
+  "editor.formatOnSave": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "eslint.validate": ["javascriptreact", "html", "javascript", "typescript"]
+}
