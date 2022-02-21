@@ -30,10 +30,41 @@ a {
   scroll-behavior: smooth;
 }
 
+p {
+  font-size: 18px;
+}
+
 .ht {
+  &-button {
+    padding: 10px 8px;
+    font-size: 18px;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    width: fit-content;
+    cursor: pointer;
+    transition: 0.2s all;
+    font-weight: 300;
+    &:hover {
+      opacity: 0.8;
+    }
+    i {
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black;
+      border-radius: 50px;
+    }
+  }
+
+  &-header-fixed,
   &-banner {
     background: transparent linear-gradient(116deg, #0b4f84 0%, #053860 100%) 0%
       0% no-repeat padding-box;
+  }
+
+  &-banner {
     display: flex;
     flex-direction: column;
   }
@@ -46,16 +77,79 @@ a {
     margin: auto;
   }
 
-  &-skills {
+  &-skills,
+  &-about-me {
     background: transparent linear-gradient(131deg, #ffc4c3 0%, #ffa7a4 100%) 0%
       0% no-repeat padding-box;
+
+    &__link {
+      position: relative;
+      &.active {
+        background: white;
+        &::before {
+          content: "";
+          position: absolute;
+          left: -100%;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          background: white;
+        }
+      }
+    }
+
+    &__content {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        right: -100%;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: white;
+      }
+    }
   }
+
   &-projects {
     background: transparent linear-gradient(129deg, #6dcfa8 0%, #41af7d 100%) 0%
       0% no-repeat padding-box;
   }
-  &-about-me {
-    background: transparent linear-gradient(131deg, #ffc4c3 0%, #ffa7a4 100%) 0%
-      0% no-repeat padding-box;
+
+  &-footer {
+    background: #16232d;
+  }
+
+  &-projects-grid {
+    > div {
+      @media (--min-md) {
+        &:not(:nth-child(4n)) {
+          border-right: 1px solid black;
+          padding-right: 32px;
+        }
+        &:not(:nth-child(1)):not(:nth-child(5)) {
+          padding-left: 32px;
+        }
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: 0px;
+        width: 101%;
+        height: 1px;
+        background: black;
+      }
+      @media (--min-xs) {
+        &:nth-child(odd) {
+          border-right: 1px solid black;
+          padding-right: 32px;
+        }
+        &:nth-child(even) {
+          padding-left: 32px;
+        }
+      }
+    }
   }
 }
