@@ -7,13 +7,13 @@ export default function Layout({ children }) {
 	
 	return (
 		<div>
-			<div className="py-8 ht-header-fixed fixed z-10 w-full">
+			<div className="py-8 ht-header-fixed fixed z-10 w-full ht-bg-blue">
 				<div className="ht-wrapper">
 					<Header className="flex justify-between text-white" currentSection="Skills"/>
 				</div>
 			</div>
 			{children}
-			<div className="ht-footer py-8 text-white">
+			<div className="py-8 text-white" style={{background: '#16232d'}}>
 				<div className="ht-wrapper">
 					<div className="flex justify-center items-center gap-4 font-light">
 						<div className="hover:opacity-80 transition-opacity cursor-pointer">

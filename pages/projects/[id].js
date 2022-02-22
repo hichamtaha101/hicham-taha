@@ -1,22 +1,22 @@
 import Layout from '../../components/layout'
 import Header from '../../components/Header'
+import Banner from '../../components/Banner'
 import projects from '../../lib/projects';
 
-
-export default function Project({ projectData, id }) {
+export default function Project({ projectData }) {
   return (
 	<div className="ht-page project-page">
 		<Layout>
 
 			{/* Banner */}
-			<div className="ht-banner z-20 relative">
-				<div className="ht-wrapper text-white flex flex-col">
+			<div className="ht-banner z-20 relative text-white ht-bg-blue">
+				<div className="ht-wrapper flex flex-col">
 					<Header currentSection={projectData.title} className="flex justify-between font-light border-b-2 border-white py-8" />
+					<Banner description={projectData.description} title={projectData.title} subTitle={projectData.timeline}/>
 				</div>
 			</div>
 
 			{/* Project Details */}
-			<div>Project {id}</div>
 		</Layout>
 	</div>
   )

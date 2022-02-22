@@ -1,20 +1,20 @@
 :root {
-  /* darker blue; */
-  --main-color: #16232d;
-  /* lighter pink */
-  --secondary-color-1: #ffc3c2;
-  /* light pink */
-  --secondary-color-2: #ffafad;
-  /* light green */
-  --secondary-color-3: #6dcfa8;
-  /*  green */
-  --secondary-color-4: #41af7d;
-  --font-primary: "Suisse Int'l";
-  --font-secondary: "Forma DJR Display";
-  --font-alt-1: "sans-serif";
-  --font-alt-2: Verdana;
-  --font-alt-3: Tahoma;
-  --font-4: FontAwesome;
-  --header-height: 90px;
-  --nw-max-width: 1920px;
+	/* darker blue; */
+	--main-color: #16232d;
+	/* lighter pink */
+	--secondary-color-1: #ffc3c2;
+	/* light pink */
+	--secondary-color-2: #ffafad;
+	/* light green */
+	--secondary-color-3: #6dcfa8;
+	/*  green */
+	--secondary-color-4: #41af7d;
+	--font-primary: "SuisseIntl";
+	--font-secondary: "FormaDJRDisplay";
+	--font-alt-1: "sans-serif";
+	--font-alt-2: Verdana;
+	--font-alt-3: Tahoma;
+	--font-4: FontAwesome;
+	--header-height: 90px;
+	--nw-max-width: 1920px;
 }

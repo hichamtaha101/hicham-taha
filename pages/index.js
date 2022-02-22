@@ -16,10 +16,10 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
           return (
             <React.Fragment>
               <p>
-            	I am a post-graduate from Kwantlen Polytechnic University with a Bachelors in Information and Technology. The program I attended covered general computer hardware and software concepts, business statistics, and technology in web development and networking. I specialized in web and mobile application development with a GPA of 3.5.
+            	  I am a post-graduate from Kwantlen Polytechnic University with a Bachelors in Information and Technology. The program I attended covered general computer hardware and software concepts, business statistics, and technology in web development and networking. I specialized in web and mobile application development with a GPA of 3.5.
               </p>
               <p className="mt-6">
-              	Currently, I work at <a href="https://henesysgroup.com/" target="_blank" rel="noreferrer">Henesys Group</a> as a freelance developer. Regarding the work environment, I am self-driven and engaging towards back-end oriented projects. My preferred development stack include MongoDB, Express, Node, Vue / Nuxt, and Amazon Web Services for infrastructure/deployment support.
+              	Currently, I work at <a href="https://henesysgroup.com/" target="_blank" rel="noreferrer">Henesys Group</a> as a freelance developer. My responsibilities are oriented towards back-end or full-stack related projects. My preferred development stack include MongoDB, Express, Node, Vue / Nuxt, and Amazon Web Services for infrastructure/deployment support.
               </p>
             </React.Fragment>
           );
@@ -31,7 +31,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
               Outside of work hours, i&apos;m still a developer. A fair amount of my spare time is invested in learning new development tools and techniques. I&apos;m subscribed to various learning platforms such as Udemy, Code Academy and Team Tree House.
             </p>
             <p className="mt-6">
-              However, I do have a life outside of web development. During my leisure time, watching television or hitting the gym is where i&apos;ll be. I enjoy fitness and am physically active at least three days of the week. Regarding television, I generally watch anything from American television series to silly cartoons and anime.
+              Outside of development, watching television, playing video games, or hitting the gym is where i&apos;ll be. I enjoy fitness and try to be physically active at least three days of the week. Regarding television, I generally watch anything from popular television series to silly cartoons and animes. Lastly, I enjoy classic games on my switch, or playing Counter Strike and Starcraft on my gaming desktop.
             </p>
             </React.Fragment>
           );
@@ -53,20 +53,17 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
         <meta name="author" content="Hicham Akira Taha"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" href="/favicon.png" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css" />
         {/* add font style scripts here */}
       </Head>
       <Layout>
-      <div className="ht-banner z-20 relative">
+      <div className="ht-banner z-20 relative ht-bg-blue">
         {/* Banner */}
         <div className="ht-wrapper text-white flex flex-col">
           <Header className="flex justify-between font-light border-b-2 border-white py-8" currentSection="Introduction" />
-          <div className="flex justify-between flex-grow items-center">
+          <div className="flex justify-between flex-wrap sm:flex-nowrap flex-grow items-center">
             
             {/* Banner Left Side Content */}
-            <div className="w-full max-w-4xl flex justify-between flex-col" style={{ minHeight: '810px' }}>
-              <div></div>
+            <div className="w-full max-w-4xl order-2 sm:order-1 pb-20 mt-0 sm:mt-6">
               <div>
               <h2 className="text-3xl">Full Stack</h2>
               <h1 className="text-7xl">Developer</h1>
@@ -74,18 +71,19 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
               <p className="font-light mt-6">Additionally, I graduated with a Bachelors in Information Technology at Kwantlen Polytechnic University, specializing in Web and Mobile Application Development. </p>
               <p className="font-light mt-6">I&apos;ve got a keen interest for upcoming innovations and am constantly researching new technologies to improve my development skill set.</p>
               </div>
-              <div className="text-lg font-light py-8"><i className="fa fa-arrow-down mr-4" />Scroll To Learn More</div>
+              <div className="text-lg font-light absolute bottom-4 sm:bottom-8"><i className="fa fa-arrow-down mr-4" />Scroll To Learn More</div>
             </div>
 
             {/* Banner Right Side Diamond */}
-            <div className="w-full" style={{ padding: '105px', maxWidth: '710px'}}>
-              <div className="p-12 rotate-45 border-2 border-white m-auto">
+            <div className="w-full order-1 sm:order-2 p-0 sm:p-28 my-6 sm:my-12" style={{ maxWidth: '710px'}}>
+              <div className="p-0 sm:p-12 rotate-0 sm:rotate-45 border-0 sm:border-2 border-white m-auto">
                 <Image
                     src="/images/profile.png"
                     height={400}
                     width={400}
+                    quality={100}
                     alt="Hicham Taha Profile Picture"
-                    className="-rotate-45"
+                    className="rotate-0 sm:-rotate-45"
                   />
               </div>
             </div>
@@ -94,24 +92,24 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
       </div>
 
       {/* Skills Section */}
-      <div className="ht-skills">
+      <div className="ht-bg-pink" id="skills">
         <div className="ht-wrapper py-40">
           <div className="flex flex-wrap justify-between gap-6">
             <h1 className="text-7xl">Skills</h1>
             <div className="max-w-5xl">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <div className="ht-button mt-8">Check out my skill below <i className="fa fa-arrow-down ml-1" /></div>
+              <p>Having 6+ years of working experience in web and software development, i&apos;ve been able to explore a vast range of popular tools used within the industry. The following grid ranks my technical competencies from most comfortable to least. Nonetheless, each tool listed below has been fundamentally involved in at least one of my work related projects.</p>
+              <div className="ht-button no-hover mt-8">Check out my skill below <i className="fa fa-arrow-down ml-1" /></div>
             </div>
           </div>
           <div className="border-t border-black pb-24 mt-24" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-40">
             <div>
-              <div className="pb-12">Front End</div>
+              <div className="pb-0 sm:pb-12 text-lg font-light">Front End</div>
               { frontendSkills.map( (skill, i ) => (
                 <div className="flex items-end mt-12" key={i}>
                   <div className="w-40 text-6xl"><i className={skill.icon} /></div>
                   <div className="flex-grow">
-                    <div>{skill.name}</div>
+                    <div className="font-light mb-1">{skill.name}</div>
                     <div className="border border-black h-6">
                       <div className="bg-black h-full" style={{ width: `${skill.percentage}%` }}/>
                     </div>
@@ -120,12 +118,12 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
               ) )}
             </div>
             <div>
-              <div className="pb-12">Back End</div>
+              <div className="pb-0 sm:pb-12 text-lg font-light">Back End</div>
               { backendSkills.map( (skill, i ) => (
                 <div className="flex items-end mt-12" key={i}>
                   <div className="w-40 text-6xl"><i className={skill.icon} /></div>
                   <div className="flex-grow">
-                    <div>{skill.name}</div>
+                    <div className="font-light mb-1">{skill.name}</div>
                     <div className="border border-black h-6">
                       <div className="bg-black h-full" style={{ width: `${skill.percentage}%` }}/>
                     </div>
@@ -139,22 +137,22 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
       </div>
 
       {/* Projects Section */}
-      <div className="ht-projects">
+      <div className="ht-projects ht-bg-green" id="projects">
       <div className="ht-wrapper pt-40 pb-60">
           <div className="flex flex-wrap justify-between gap-6">
             <h1 className="text-7xl">Projects</h1>
-            <div className="max-w-5xl">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div className="max-w-5xl"><p>Below is a timeline of projects i&apos;ve developed or lead throughout my professional career sorted by completion date. In general, i&apos;ve created API services, web platforms, automation scripts, websites, and e-commerce solutions. You may view the individual projects in detail by clicking on their &ldquo;Learn More&ldquo; button.</p>
             </div>
           </div>
           <div className="border-t border-black pb-24 mt-24" />
           <div className="ht-projects-grid grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-y-40">
             { projects.map( (project, i) => (
-                <div className="relative" key={i}>
+                <div className="relative flex flex-col" key={i}>
                     <h3 className="text-4xl font-normal">0{ i + 1 } {project.title}</h3>
+                    <h6 className="font-normal mt-1">{project.timeline}</h6>
                     <p className="mt-8 mb-6 font-light">{project.description}</p>
                       <Link href={project.link} passHref>
-                        <div className="ht-button">
+                        <div className="ht-button mt-auto">
                             Learn More <i className="fa fa-plus" />
                         </div>
                       </Link>
@@ -165,14 +163,13 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
       </div>
 
       {/* About Me Section */}
-      <div className="ht-about-me">
+      <div className="ht-about-me ht-bg-pink" id="about">
         <div className="ht-wrapper">
-          <div className="py-40">
+          <div className="pt-40 pb-12">
             <div className="flex flex-wrap justify-between gap-6">
               <h1 className="text-7xl">About Me</h1>
-              <div className="max-w-5xl">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              </div>
+              {/* <div className="max-w-5xl">
+              </div> */}
             </div>
           </div>
 
@@ -180,17 +177,17 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
           <div className="flex">
               <div className="max-w-xl w-full">
                 <div 
-                className={`ht-about-me__link p-6 text-4xl cursor-pointer ${activeAboutSection === 'education-and-work' ? 'active' : 'border-b border-black'}`} 
+                className={`ht-about-me__link p-6 text-lg xs:text-4xl cursor-pointer ${activeAboutSection === 'education-and-work' ? 'active' : 'border-b border-black'}`} 
                 onClick={() => { setActiveAboutSection('education-and-work') }}>
                   Education & Work
                 </div>
                 <div 
-                className={`ht-about-me__link p-6 text-4xl cursor-pointer ${activeAboutSection === 'personal-hobbies' ? 'active' : 'border-b border-black'}`}
+                className={`ht-about-me__link p-6 text-lg xs:text-4xl cursor-pointer ${activeAboutSection === 'personal-hobbies' ? 'active' : 'border-b border-black'}`}
                 onClick={() => { setActiveAboutSection('personal-hobbies') } }>
                   Personal Hobbies
                 </div>
               </div>
-              <div className="py-10 pl-14 flex-grow bg-white ht-about-me__content" style={{ minHeight: "418px" }}>
+              <div className="py-10 pl-14 flex-grow bg-white ht-about-me__content" style={{ minHeight: "500px" }}>
                 <div className="max-w-5xl ml-auto">
                   {getAboutSectionContent(activeAboutSection)}
                 </div>
@@ -210,7 +207,15 @@ export async function getStaticProps() {
     props: { 
       frontendSkills, 
       backendSkills,
-      projects: Object.values( projects ),
+      projects: Object.values( projects ).map( p => {
+        const copy = JSON.parse( JSON.stringify( p ) );
+        // Ellipses for descriptions that are too long.
+        let sliced = copy.description.slice(0, 200).trim().split( ' ' );
+        sliced.pop();
+        sliced = sliced.join(' ');
+        copy.description = `${sliced}...`;
+        return copy;
+      }),
     }
   }
 }
