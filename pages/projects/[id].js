@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import Layout from '../../components/layout'
 import Header from '../../components/Header'
@@ -12,7 +12,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function Project({ project, index, prevProject = false, nextProject = false }) {
-	const slickSettings = {
+	const [slickSettings] = useState( {
 		infinite: true,
 		speed: 500,
 		slidesToShow: 2,
@@ -28,7 +28,7 @@ export default function Project({ project, index, prevProject = false, nextProje
           }
         },
       ]
-	};
+	} );
 
   return (
 	<div className="ht-page project-page">
@@ -37,7 +37,7 @@ export default function Project({ project, index, prevProject = false, nextProje
 			{/* Banner */}
 			<div className="ht-banner z-20 relative text-white ht-bg-blue">
 				<div className="ht-wrapper flex flex-col">
-					<Header currentSection={project.title} className="flex justify-between font-light border-b-2 border-white py-8" />
+					<Header currentSection={project.title} className="border-b-2 border-white py-8" />
 					<Banner description={project.description} title={project.title} subTitle={project.timeline}/>
 				</div>
 			</div>
@@ -54,7 +54,7 @@ export default function Project({ project, index, prevProject = false, nextProje
 								append={(
 									<div className="flex gap-6">
 										<div className="ht-button no-hover">Learn More <i className="fa fa-arrow-down ml-1" /></div>
-										{ s.link && <div className="ht-button"><a href={s.link} target="_blank" rel="noreferrer">Visit Website <i className="fa fa-link ml-1" /></a></div> }
+										{ s.link && <a href={s.link} target="_blank" rel="noreferrer"><div className="ht-button">Visit Website <i className="fa fa-link ml-1" /></div></a> }
 									</div>
 								)}
 							/>
@@ -68,7 +68,7 @@ export default function Project({ project, index, prevProject = false, nextProje
 												height={1080}
 												width={1920}
 												quality={100}
-												alt="test"
+												alt=""
 												/>
 												{/* <img src={slide.src} alt=""/> */}
 											</div>

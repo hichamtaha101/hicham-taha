@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import Layout from '../components/layout';
@@ -11,6 +11,31 @@ import Link from 'next/link'
 
 export default function Home({ frontendSkills, backendSkills, projects }) {
   const [ activeAboutSection, setActiveAboutSection ] = useState( 'education-and-work' );
+  const [ activeSection, setActiveSection ] = useState( 'Skills' );
+  const mappedActiveSections = {
+    ht_skills_section: 'Skills',
+    ht_projects_section: 'Projects',
+    ht_about_section: 'About',
+  };
+
+  // Component mounted, first load.
+  useEffect( () => {
+    const observer = new IntersectionObserver( entries => {
+        entries.forEach( ( entry ) => {
+          entry.isIntersecting && setActiveSection( mappedActiveSections[entry.target.id] );
+      });
+    }, {
+        rootMargin: '0px',
+        threshold: 0.1
+    });
+    observer.observe(document.querySelector("#ht_skills_section"));
+    observer.observe(document.querySelector("#ht_projects_section"));
+    observer.observe(document.querySelector("#ht_about_section"));
+
+    return () => {
+      observer.disconnect(); // Stop listening if component leaves.
+    }
+  })
 
   const getAboutSectionContent = ( type ) => {
     switch (type) {
@@ -57,15 +82,15 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
         <link rel="icon" type="image/png" href="/favicon.png" />
         {/* add font style scripts here */}
       </Head>
-      <Layout currentSection="Skills">
+      <Layout currentSection={activeSection}>
       <div className="ht-banner z-20 relative ht-bg-blue">
         {/* Banner */}
         <div className="ht-wrapper text-white flex flex-col">
-          <Header className="flex justify-between font-light border-b-2 border-white py-8" currentSection="Introduction" />
+          <Header className="border-b-2 border-white py-8" currentSection="Introduction" />
           <div className="flex justify-between flex-wrap sm:flex-nowrap flex-grow items-center">
             
             {/* Banner Left Side Content */}
-            <div className="w-full max-w-4xl order-2 sm:order-1 pb-20 mt-0 sm:mt-6">
+            <div className="w-full max-w-4xl order-2 sm:order-1 pb-24 mt-0 sm:mt-6">
               <div>
               <h2 className="text-3xl">Full Stack</h2>
               <h1 className="text-7xl">Developer</h1>
@@ -73,7 +98,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
               <p className="font-light mt-6">Additionally, I graduated with a Bachelors in Information Technology at Kwantlen Polytechnic University, specializing in Web and Mobile Application Development. </p>
               <p className="font-light mt-6">I&apos;ve got a keen interest for upcoming innovations and am constantly researching new technologies to improve my development skill set.</p>
               </div>
-              <div className="text-lg font-light absolute bottom-4 sm:bottom-8"><i className="fa fa-arrow-down mr-4" />Scroll To Learn More</div>
+              <div className="text-lg font-light absolute bottom-8 sm:bottom-8"><i className="fa fa-arrow-down mr-4" />Scroll To Learn More</div>
             </div>
 
             {/* Banner Right Side Diamond */}
@@ -95,7 +120,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
       </div>
 
       {/* Skills Section */}
-      <div className="ht-bg-pink" id="skills">
+      <div className="ht-bg-pink" id="ht_skills_section">
         <div className="ht-wrapper py-40">
           <SectionTitle 
           title="Skills" 
@@ -137,15 +162,17 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
             </div>
           </div>
         </div>
-
       </div>
 
       {/* Projects Section */}
-      <div className="ht-projects ht-bg-green" id="projects">
+      <div className="ht-projects ht-bg-green" id="ht_projects_section">
       <div className="ht-wrapper pt-40 pb-60">
           <SectionTitle 
           title="Projects"
           descriptions={["Below is a timeline of projects i've developed or lead throughout my professional career sorted by completion date. In general, i've created API services, web platforms, automation scripts, websites, and e-commerce solutions. You may view the individual projects in detail by clicking on their \"Learn More\" button."]}
+          append={(
+            <div className="ht-button w-max no-hover">View my projects below <i className="fa fa-arrow-down ml-1" /></div>
+          )}
           />
           <div className="border-t border-black pb-24 mt-24" />
           <div className="ht-projects-grid grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-y-40">
@@ -166,7 +193,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
       </div>
 
       {/* About Me Section */}
-      <div className="ht-about-me ht-bg-pink" id="about">
+      <div className="ht-about-me ht-bg-pink" id="ht_about_section">
         <div className="ht-wrapper">
           <div className="pt-40 pb-12">
             <SectionTitle title="About Me"/>

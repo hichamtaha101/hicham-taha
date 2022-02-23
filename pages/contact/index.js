@@ -1,7 +1,6 @@
 import Layout from '../../components/layout';
 import Header from '../../components/Header'
 import Banner from '../../components/Banner'
-import Link from 'next/link';
 
 export default function Contact() {
 	return (
@@ -11,7 +10,7 @@ export default function Contact() {
 				{/* Banner */}
 				<div className="ht-banner z-20 relative text-white ht-bg-blue">
 					<div className="ht-wrapper flex flex-col">
-						<Header currentSection="Get In Touch" className="flex justify-between font-light border-b-2 border-white py-8" />
+						<Header currentSection="Get In Touch" className="border-b-2 border-white py-8" />
 						<Banner description="You can find me only various social platforms including Linkedin, Github, or Leetcode. Additionally, i'll be happy to answer any questions you may have via email or a phone call." title="Contact"/>
 					</div>
 				</div>

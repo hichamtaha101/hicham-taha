@@ -7,7 +7,7 @@ export default function Banner({ title, description, subTitle = '' }) {
 		<div className="flex justify-between items-center text-lg" style={{ minHeight: '450px' }}>
 			<div>
 				<Link href="/" passHref>
-				<div className="font-light cursor-pointer hover:opacity-80 transition-opacity">
+				<div className="font-light cursor-pointer hover:opacity-80 transition-opacity pt-4 xs:pt-0">
 					<i className="fa fa-arrow-left mr-4" />Back To Home
 				</div>
 				</Link>

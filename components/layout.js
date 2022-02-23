@@ -15,7 +15,7 @@ export default function Layout({ children, currentSection }) {
 			{children}
 			<div className="py-8 text-white" style={{background: '#16232d'}}>
 				<div className="ht-wrapper">
-					<div className="flex justify-center items-center gap-4 font-light">
+					<div className="flex flex-wrap justify-center items-center gap-4 font-light">
 						<div className="hover:opacity-80 transition-opacity cursor-pointer">
 							<Link href="/">
 								HICHAM TAHA

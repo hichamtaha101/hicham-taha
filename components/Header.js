@@ -5,7 +5,7 @@ export default function Header({ className, currentSection = '' }) {
 	const [currentYear] = useState(new Date().getFullYear());
 
 	return (
-		<div className={className}>
+		<div className={`flex justify-between font-light gap-4 ${className}`}>
 			<div className="uppercase">{currentSection}</div>
 				<Link href="/" passHref>
 					<div className="cursor-pointer hover:opacity-80 transition-opacity">

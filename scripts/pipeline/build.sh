@@ -2,7 +2,7 @@
 
 # --------------------------------------------------------------------------------------------
 # [Hicham Taha] build.sh
-#				Build nuxt website into the dist/ folder.
+#				Build next website into the out/ folder.
 # --------------------------------------------------------------------------------------------
 
 echo "entered build phase..."
