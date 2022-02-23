@@ -19,7 +19,7 @@ export default function Contact() {
 				<div className="ht-bg-green flex items-center" style={{ minHeight: "calc(100vh - 570px)"}}>
 					<div className="ht-wrapper text-5xl">
 						<h2 className="text-center mb-8 font-normal">Lets Connect</h2>
-						<div className="flex justify-center gap-12 pb-12">
+						<div className="flex flex-wrap justify-center gap-12 pb-12">
 							<a href="https://www.linkedin.com/in/hichamakirataha/" target="_blank" rel="noreferrer">
 								<i className="ht-contact-link devicon-linkedin-plain" />
 							</a>
