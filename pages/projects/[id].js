@@ -7,10 +7,11 @@ import Banner from '../../components/Banner'
 import SectionTitle from '../../components/SectionTitle';
 import projects from '../../lib/projects';
 import Image from 'next/image';
+import Link from 'next/link';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function Project({ projectData }) {
+export default function Project({ project, index, prevProject = false, nextProject = false }) {
 	const slickSettings = {
 		infinite: true,
 		speed: 500,
@@ -31,20 +32,20 @@ export default function Project({ projectData }) {
 
   return (
 	<div className="ht-page project-page">
-		<Layout currentSection={projectData.title}>
+		<Layout currentSection={project.title}>
 
 			{/* Banner */}
 			<div className="ht-banner z-20 relative text-white ht-bg-blue">
 				<div className="ht-wrapper flex flex-col">
-					<Header currentSection={projectData.title} className="flex justify-between font-light border-b-2 border-white py-8" />
-					<Banner description={projectData.description} title={projectData.title} subTitle={projectData.timeline}/>
+					<Header currentSection={project.title} className="flex justify-between font-light border-b-2 border-white py-8" />
+					<Banner description={project.description} title={project.title} subTitle={project.timeline}/>
 				</div>
 			</div>
 
 			{/* Project Details */}
-			<div className="ht-bg-green py-40">
+			<div className="ht-bg-green pt-40">
 				<div className="ht-wrapper flex flex-col gap-64">
-					{ projectData.sections.map( (s, si) => (
+					{ project.sections.map( (s, si) => (
 						<div key={si}>
 							<SectionTitle
 								title={s.title}
@@ -64,8 +65,8 @@ export default function Project({ projectData }) {
 											<div>
 												<Image
 												src={slide.src}
-												height={468}
-												width={906}
+												height={1080}
+												width={1920}
 												quality={100}
 												alt="test"
 												/>
@@ -78,8 +79,18 @@ export default function Project({ projectData }) {
 							</div>
 						</div>
 					))}
+					{/* Project Navigation  */}
+					<div className="pb-16 flex flex-col xs:flex-row gap-4">
+						{ prevProject && 
+						<Link href={prevProject.link} passHref><div className="ht-button"><i className="fa fa-arrow-left mr-2"/>{index}. {prevProject.title}</div></Link> }
+						<div className="ht-button no-hover flex-grow text-left xs:text-center">{index + 1}. {project.title}</div>
+						{ nextProject && 
+						<Link href={nextProject.link} passHref><div className="ht-button">{index + 2}. {nextProject.title}<i className="ml-2 fa fa-arrow-right" /></div></Link>
+						}
+					</div>
 				</div>
 			</div>
+
 		</Layout>
 	</div>
   )
@@ -87,7 +98,7 @@ export default function Project({ projectData }) {
 
 export async function getStaticPaths() {
   // Return a list of possible values for id.
-  const paths = Object.keys( projects ).map( p => ({  params: { id: p } }))
+  const paths = projects.map( p => ({  params: { id: p.id } }))
   return {
 	  paths,
 	  fallback: false,
@@ -96,8 +107,13 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   	// Fetch necessary data for the blog post using params.id
-  	const projectData = projects[params.id];
+  	const index = projects.findIndex( p => p.id === params.id );
 	return {
-		props: { projectData, id: params.id }
+		props: { 
+			index,
+			project: projects[index],
+			prevProject: projects[index-1] ? { title: projects[index-1].title, link: projects[index-1].link } : false,
+			nextProject: projects[index+1] ? { title: projects[index+1].title, link: projects[index+1].link } : false,
+		}
 	}
 }

@@ -81,8 +81,8 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
               <div className="p-0 sm:p-12 rotate-0 sm:rotate-45 border-0 sm:border-2 border-white m-auto">
                 <Image
                     src="/images/profile.png"
-                    height={400}
-                    width={400}
+                    height={402}
+                    width={402}
                     quality={100}
                     alt="Hicham Taha Profile Picture"
                     className="rotate-0 sm:-rotate-45"
@@ -101,7 +101,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
           title="Skills" 
           descriptions={["Having 6+ years of working experience in web and software development, i've has the opportunity to explore a vast range of popular tools and technology. The following grid ranks my technical competencies from most comfortable to least. Nonetheless, each item listed below has been fundamentally involved in at least one of my work related projects."]}
           append={(
-            <div className="ht-button no-hover">Check out my skill below <i className="fa fa-arrow-down ml-1" /></div>
+            <div className="ht-button w-max no-hover">Check out my skill below <i className="fa fa-arrow-down ml-1" /></div>
           )}
           />
 
@@ -155,7 +155,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
                     <h6 className="font-normal mt-1">{project.timeline}</h6>
                     <p className="mt-8 mb-6 font-light">{project.description}</p>
                       <Link href={project.link} passHref>
-                        <div className="ht-button mt-auto">
+                        <div className="ht-button w-max mt-auto">
                             Learn More <i className="fa fa-plus" />
                         </div>
                       </Link>
@@ -206,7 +206,7 @@ export async function getStaticProps() {
     props: { 
       frontendSkills, 
       backendSkills,
-      projects: Object.values( projects ).map( p => {
+      projects: projects.map( p => {
         const copy = JSON.parse( JSON.stringify( p ) );
         // Ellipses for descriptions that are too long.
         let sliced = copy.description.slice(0, 200).trim().split( ' ' );

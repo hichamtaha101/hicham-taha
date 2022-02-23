@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+    install:
+        on-failure: ABORT
+        commands:
+            - ./scripts/pipeline/install.sh
+    pre_build:
+        on-failure: ABORT
+        commands:
+            - ./scripts/pipeline/pre_build.sh
+    build:
+        on-failure: ABORT
+        commands:
+            - ./scripts/pipeline/build.sh
+    post_build:
+        on-failure: ABORT
+        commands:
+            - echo "post build phase test"
+artifacts:
+    base-directory: "out"
+    files:
+        - "**/*"
+    name: BuildArtifact
+    discard-paths: no
+cache:
+    paths:
+        - node_modules/**/*

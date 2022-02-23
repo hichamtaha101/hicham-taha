@@ -3,12 +3,9 @@
 @import "./variables.css";
 @import "./contact.css";
 
-html {
-	overflow-x: hidden;
-}
-
 html,
 body {
+	overflow-x: hidden;
 	padding: 0;
 	margin: 0;
 	font-family: var(--font-primary), var(--font-secondary);
@@ -45,7 +42,6 @@ p {
 		font-size: 18px;
 		border: 1px solid #000000;
 		border-radius: 50px;
-		width: fit-content;
 		transition: 0.2s all;
 		font-weight: 300;
 		&:not(.no-hover):hover {
