@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Slider from "react-slick";
 import Layout from '../../components/layout'
@@ -17,6 +18,15 @@ export default function Project({ projectData }) {
 		slidesToScroll: 1,
 		dots: false,
 		arrows: false,
+		responsive: [
+        {
+          breakpoint: 1400,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          }
+        },
+      ]
 	};
 
   return (
@@ -51,13 +61,16 @@ export default function Project({ projectData }) {
 								<Slider {...slickSettings}>
 									{ s.slides.map( (slide, ssi) => (
 										<div className="px-3" key={`slide_${ssi}`}>
-											<Image
-											src={slide.src}
-											height={468}
-											width={906}
-											quality={100}
-											alt="test"
-											/>
+											<div>
+												<Image
+												src={slide.src}
+												height={468}
+												width={906}
+												quality={100}
+												alt="test"
+												/>
+												{/* <img src={slide.src} alt=""/> */}
+											</div>
 											<div className="font-light text-lg border-t border-black inline-block mt-2 pt-3">{ssi + 1}. {slide.title}</div>
 										</div>
 									)) }

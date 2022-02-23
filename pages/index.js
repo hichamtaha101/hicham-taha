@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
@@ -53,7 +54,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
         <meta name="description" content="Portfolio for Full Stack Developer Hicham Taha" />
         <meta name="author" content="Hicham Akira Taha"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
         {/* add font style scripts here */}
       </Head>
       <Layout currentSection="Skills">
@@ -86,6 +87,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
                     alt="Hicham Taha Profile Picture"
                     className="rotate-0 sm:-rotate-45"
                   />
+                  {/* <img src="/images/profile.png" alt="Profile Image" className="rotate-0 sm:-rotate-45"/> */}
               </div>
             </div>
           </div>
