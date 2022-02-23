@@ -13,9 +13,9 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
   const [ activeAboutSection, setActiveAboutSection ] = useState( 'education-and-work' );
   const [ activeSection, setActiveSection ] = useState( 'Skills' );
   const mappedActiveSections = {
-    ht_skills_section: 'Skills',
-    ht_projects_section: 'Projects',
-    ht_about_section: 'About',
+    skills: 'Skills',
+    projects: 'Projects',
+    about: 'About',
   };
 
   // Component mounted, first load.
@@ -28,9 +28,9 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
         rootMargin: '0px',
         threshold: 0.1
     });
-    observer.observe(document.querySelector("#ht_skills_section"));
-    observer.observe(document.querySelector("#ht_projects_section"));
-    observer.observe(document.querySelector("#ht_about_section"));
+    observer.observe(document.querySelector("#skills"));
+    observer.observe(document.querySelector("#projects"));
+    observer.observe(document.querySelector("#about"));
 
     return () => {
       observer.disconnect(); // Stop listening if component leaves.
@@ -120,7 +120,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
       </div>
 
       {/* Skills Section */}
-      <div className="ht-bg-pink" id="ht_skills_section">
+      <div className="ht-bg-pink" id="skills">
         <div className="ht-wrapper py-40">
           <SectionTitle 
           title="Skills" 
@@ -165,7 +165,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
       </div>
 
       {/* Projects Section */}
-      <div className="ht-projects ht-bg-green" id="ht_projects_section">
+      <div className="ht-projects ht-bg-green" id="projects">
       <div className="ht-wrapper pt-40 pb-60">
           <SectionTitle 
           title="Projects"
@@ -193,7 +193,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
       </div>
 
       {/* About Me Section */}
-      <div className="ht-about-me ht-bg-pink" id="ht_about_section">
+      <div className="ht-about-me ht-bg-pink" id="about">
         <div className="ht-wrapper">
           <div className="pt-40 pb-12">
             <SectionTitle title="About Me"/>
