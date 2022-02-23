@@ -15,6 +15,8 @@ export default function Project({ project, index, prevProject = false, nextProje
 	const [slickSettings] = useState( {
 		infinite: true,
 		speed: 500,
+		autoplay: true,
+      	autoplaySpeed: 5000,
 		slidesToShow: 2,
 		slidesToScroll: 1,
 		dots: false,
