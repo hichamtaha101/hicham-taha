@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Banner({ title, description, subTitle = '' }) {
 
 	return (
-		<div className="flex justify-between items-center text-lg" style={{ minHeight: '392px' }}>
+		<div className="flex justify-between items-center text-lg" style={{ minHeight: '450px' }}>
 			<div>
 				<Link href="/" passHref>
 				<div className="font-light cursor-pointer hover:opacity-80 transition-opacity">

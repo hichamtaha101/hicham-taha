@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Layout from '../components/layout';
 import Header from '../components/Header';
+import SectionTitle from '../components/SectionTitle';
 import { backendSkills, frontendSkills } from '../lib/skills';
 import projects from '../lib/projects';
 import Link from 'next/link'
@@ -16,7 +17,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
           return (
             <React.Fragment>
               <p>
-            	  I am a post-graduate from Kwantlen Polytechnic University with a Bachelors in Information and Technology. The program I attended covered general computer hardware and software concepts, business statistics, and technology in web development and networking. I specialized in web and mobile application development with a GPA of 3.5.
+            	  I am a post-graduate from Kwantlen Polytechnic University with a Bachelors in Information and Technology. The program I attended covered general computer hardware and software concepts, business statistics, and technology in web development and networking. I specialized in web and mobile application development with a GPA of 3.8.
               </p>
               <p className="mt-6">
               	Currently, I work at <a href="https://henesysgroup.com/" target="_blank" rel="noreferrer">Henesys Group</a> as a freelance developer. My responsibilities are oriented towards back-end or full-stack related projects. My preferred development stack include MongoDB, Express, Node, Vue / Nuxt, and Amazon Web Services for infrastructure/deployment support.
@@ -55,7 +56,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
         <link rel="icon" href="/favicon.png" />
         {/* add font style scripts here */}
       </Head>
-      <Layout>
+      <Layout currentSection="Skills">
       <div className="ht-banner z-20 relative ht-bg-blue">
         {/* Banner */}
         <div className="ht-wrapper text-white flex flex-col">
@@ -94,13 +95,14 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
       {/* Skills Section */}
       <div className="ht-bg-pink" id="skills">
         <div className="ht-wrapper py-40">
-          <div className="flex flex-wrap justify-between gap-6">
-            <h1 className="text-7xl">Skills</h1>
-            <div className="max-w-5xl">
-              <p>Having 6+ years of working experience in web and software development, i&apos;ve been able to explore a vast range of popular tools used within the industry. The following grid ranks my technical competencies from most comfortable to least. Nonetheless, each tool listed below has been fundamentally involved in at least one of my work related projects.</p>
-              <div className="ht-button no-hover mt-8">Check out my skill below <i className="fa fa-arrow-down ml-1" /></div>
-            </div>
-          </div>
+          <SectionTitle 
+          title="Skills" 
+          descriptions={["Having 6+ years of working experience in web and software development, i've has the opportunity to explore a vast range of popular tools and technology. The following grid ranks my technical competencies from most comfortable to least. Nonetheless, each item listed below has been fundamentally involved in at least one of my work related projects."]}
+          append={(
+            <div className="ht-button no-hover">Check out my skill below <i className="fa fa-arrow-down ml-1" /></div>
+          )}
+          />
+
           <div className="border-t border-black pb-24 mt-24" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-40">
             <div>
@@ -139,11 +141,10 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
       {/* Projects Section */}
       <div className="ht-projects ht-bg-green" id="projects">
       <div className="ht-wrapper pt-40 pb-60">
-          <div className="flex flex-wrap justify-between gap-6">
-            <h1 className="text-7xl">Projects</h1>
-            <div className="max-w-5xl"><p>Below is a timeline of projects i&apos;ve developed or lead throughout my professional career sorted by completion date. In general, i&apos;ve created API services, web platforms, automation scripts, websites, and e-commerce solutions. You may view the individual projects in detail by clicking on their &ldquo;Learn More&ldquo; button.</p>
-            </div>
-          </div>
+          <SectionTitle 
+          title="Projects"
+          descriptions={["Below is a timeline of projects i've developed or lead throughout my professional career sorted by completion date. In general, i've created API services, web platforms, automation scripts, websites, and e-commerce solutions. You may view the individual projects in detail by clicking on their \"Learn More\" button."]}
+          />
           <div className="border-t border-black pb-24 mt-24" />
           <div className="ht-projects-grid grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-y-40">
             { projects.map( (project, i) => (
@@ -166,11 +167,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
       <div className="ht-about-me ht-bg-pink" id="about">
         <div className="ht-wrapper">
           <div className="pt-40 pb-12">
-            <div className="flex flex-wrap justify-between gap-6">
-              <h1 className="text-7xl">About Me</h1>
-              {/* <div className="max-w-5xl">
-              </div> */}
-            </div>
+            <SectionTitle title="About Me"/>
           </div>
 
           {/* Below About Me Section */}

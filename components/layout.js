@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Header from './Header';
 
-export default function Layout({ children }) {
+export default function Layout({ children, currentSection }) {
 	const [currentYear] = useState(new Date().getFullYear());
 	
 	return (
 		<div>
 			<div className="py-8 ht-header-fixed fixed z-10 w-full ht-bg-blue">
 				<div className="ht-wrapper">
-					<Header className="flex justify-between text-white" currentSection="Skills"/>
+					<Header className="flex justify-between text-white" currentSection={currentSection}/>
 				</div>
 			</div>
 			{children}
