@@ -34,7 +34,7 @@ export default function Project({ project, index, prevProject = false, nextProje
 
   return (
 	<div className="ht-page project-page">
-		<Layout currentSection={project.title}>
+		<Layout currentSection={project.title} title={`Hicham Taha | ${project.title}`} description={project.description}>
 
 			{/* Banner */}
 			<div className="ht-banner z-20 relative text-white ht-bg-blue">
@@ -84,10 +84,10 @@ export default function Project({ project, index, prevProject = false, nextProje
 					{/* Project Navigation  */}
 					<div className="pb-16 flex flex-col xs:flex-row gap-4">
 						{ prevProject && 
-						<Link href={prevProject.link} passHref><div className="ht-button"><i className="fa fa-arrow-left mr-2"/>{index}. {prevProject.title}</div></Link> }
+						<Link rel="canonical" href={prevProject.link} passHref><div className="ht-button"><i className="fa fa-arrow-left mr-2"/>{index}. {prevProject.title}</div></Link> }
 						<div className="ht-button no-hover flex-grow text-left xs:text-center">{index + 1}. {project.title}</div>
 						{ nextProject && 
-						<Link href={nextProject.link} passHref><div className="ht-button">{index + 2}. {nextProject.title}<i className="ml-2 fa fa-arrow-right" /></div></Link>
+						<Link rel="canonical" href={nextProject.link} passHref><div className="ht-button">{index + 2}. {nextProject.title}<i className="ml-2 fa fa-arrow-right" /></div></Link>
 						}
 					</div>
 				</div>
@@ -110,12 +110,13 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   	// Fetch necessary data for the blog post using params.id
   	const index = projects.findIndex( p => p.id === params.id );
-	return {
+	
+	return index !== -1 ? {
 		props: { 
 			index,
 			project: projects[index],
 			prevProject: projects[index-1] ? { title: projects[index-1].title, link: projects[index-1].link } : false,
 			nextProject: projects[index+1] ? { title: projects[index+1].title, link: projects[index+1].link } : false,
 		}
-	}
+	} : { notFound: true }
 }

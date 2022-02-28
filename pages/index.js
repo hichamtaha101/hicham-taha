@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from 'react';
-import Head from 'next/head'
 import Image from 'next/image'
 import Layout from '../components/layout';
 import Header from '../components/Header';
@@ -74,14 +73,6 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
 
   return (
     <div className="ht-page homepage">
-      <Head>
-        <title>Hicham Taha | Full Stack Developer</title>
-        <meta name="description" content="Portfolio for Full Stack Developer Hicham Taha" />
-        <meta name="author" content="Hicham Akira Taha"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        {/* add font style scripts here */}
-      </Head>
       <Layout currentSection={activeSection}>
       <div className="ht-banner z-20 relative ht-bg-blue">
         {/* Banner */}
@@ -181,7 +172,7 @@ export default function Home({ frontendSkills, backendSkills, projects }) {
                     <h3 className="text-4xl font-normal">0{ i + 1 } {project.title}</h3>
                     <h6 className="font-normal mt-1">{project.timeline}</h6>
                     <p className="mt-8 mb-6 font-light">{project.description}</p>
-                      <Link href={project.link} passHref>
+                      <Link href={project.link} rel="canonical" passHref>
                         <div className="ht-button w-max mt-auto">
                             Learn More <i className="fa fa-plus" />
                         </div>

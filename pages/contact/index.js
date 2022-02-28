@@ -5,7 +5,7 @@ import Banner from '../../components/Banner'
 export default function Contact() {
 	return (
 		<div className="ht-page contact-page">
-			<Layout>
+			<Layout title="Hicham Taha | Contact" description="Contact Hicham Taha, a Full Stack Developer from Vancouver, BC.">
 
 				{/* Banner */}
 				<div className="ht-banner z-20 relative text-white ht-bg-blue">
